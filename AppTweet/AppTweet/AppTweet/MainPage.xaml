@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppTweet.MainPage">
+
+    <StackLayout  Orientation="Vertical">
+        <!--Entete-->
+        <StackLayout Orientation="Horizontal" BackgroundColor="#58B0F0">
+            <ImageButton Source="Images/pencil.png" 
+                         WidthRequest="25" 
+                         BackgroundColor="Transparent"></ImageButton>
+            <Button     Text="Accueil" 
+                        FontSize="20" 
+                        TextColor="White" 
+                        BackgroundColor="#58B0F0" 
+                        HorizontalOptions="FillAndExpand"  
+                        FontAttributes="Bold"
+                        HeightRequest="60"></Button>
+            <ImageButton Source="Images/favorite.png" 
+                         WidthRequest="25" 
+                         BackgroundColor="Transparent"></ImageButton>
+        </StackLayout>
+        
+        <!--infos de connexion-->
+        <StackLayout x:Name="FormulaireConnexion">
+            <Label Text="Connexion à Twitter" 
+                    HorizontalOptions="CenterAndExpand"
+                    HorizontalTextAlignment="Center">
+            </Label>
+
+            <Entry
+                   x:Name="identifiant"
+                   Placeholder="identifiant" 
+                   HorizontalOptions="FillAndExpand" 
+                   MaxLength="50"/> 
+
+            <Entry 
+                    x:Name="mdp"
+                    Placeholder="mdp" 
+                    HorizontalOptions="FillAndExpand" 
+                    MaxLength="50"
+                    IsPassword="True"/>
+            <!--se souvenir-->
+            <StackLayout Orientation="Horizontal">
+                <Switch x:Name ="seSouvenir" 
+                        OnColor="Pink"></Switch>
+                <Label Text="Mémoriser mes informations"></Label>
+            </StackLayout>
+
+            <!--message d'erreur-->
+            <Label x:Name ="erreur" 
+                   TextColor="Red"
+                   HorizontalOptions="FillAndExpand"
+                   IsVisible="false"></Label>
+            <!--Bouton connexion-->    
+            <Button Text="Se connecter" 
+                    HorizontalOptions="FillAndExpand"
+                    Clicked="seConnecter"></Button>
+        </StackLayout>
+        
+        <!--Contenu du twit-->
+        <ScrollView 
+            x:Name="listeTweets"   
+            IsVisible="false"
+            VerticalOptions="StartAndExpand">
+            <StackLayout Orientation="Horizontal">
+                <BoxView Color="Black" 
+                     HorizontalOptions="Start"
+                     HeightRequest="60"/>
+                <Image   Margin="10" 
+                     WidthRequest="75" 
+                     Aspect="AspectFit" 
+                     Source="https://picsum.photos/50/50/?random">
+                </Image>
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Auteur"></Label>
+                    <Label Text="texte du tweet"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <ImageButton 
+                    Source="reply.png" 
+                    WidthRequest="25" 
+                    HorizontalOptions="FillAndExpand" 
+                    BackgroundColor="Transparent"
+                    VerticalOptions="CenterAndExpand"
+                    HeightRequest="30"/>
+                    <ImageButton 
+                    Source="retweet.png" 
+                    WidthRequest="25" 
+                    HorizontalOptions="FillAndExpand" 
+                    BackgroundColor="Transparent"
+                    VerticalOptions="CenterAndExpand"
+                    HeightRequest="30"/>
+
+                    <ImageButton 
+                    Source="favorite.png" 
+                    WidthRequest="25" 
+                    HorizontalOptions="FillAndExpand" 
+                    BackgroundColor="Transparent"
+                    VerticalOptions="CenterAndExpand"
+                    HeightRequest="40"/>
+                </StackLayout>
+            </StackLayout>
+
+        </ScrollView>
+        <!--Footer-->
+        <StackLayout Orientation="Horizontal">
+
+            <Button Text="Fil"
+                FontSize="Small"
+                VerticalOptions="CenterAndExpand"
+                BackgroundColor="White"
+                HorizontalOptions="Center"
+                HeightRequest="75"/>
+
+            <Button Text="Notifications"
+                FontSize="Small"
+                BackgroundColor="White"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"
+                HeightRequest="75"/>
+
+            <Button Text="Messages"
+                FontSize="Small"
+                BackgroundColor="White"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"/>
+
+            <Button Text="Moi"
+                FontSize="Small"
+                BackgroundColor="White"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"
+                HeightRequest="75"></Button>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
