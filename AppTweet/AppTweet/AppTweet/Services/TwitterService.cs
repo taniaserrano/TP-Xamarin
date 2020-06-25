@@ -6,7 +6,7 @@ using System.Text;
 
 namespace AppTweet.Services
 {
-    class TwitterService : ITwitterService
+    public class TwitterService : ITwitterService
     {
     
 
